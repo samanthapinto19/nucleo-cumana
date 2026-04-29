@@ -1048,15 +1048,14 @@ footer p {
     /* Mostrar submenú cuando se hace clic en móvil */
     .navbar ul li.mobile-open .dropdown {
         display: block !important;
-        background: rgba(255, 255, 255, 0.05) !important;
+        background: transparent !important;
         margin: 0 !important;
-        padding: 10px 0 !important;
+        padding: 5px 0 15px 0 !important;
         position: static !important;
         width: 100% !important;
         opacity: 1 !important;
         visibility: visible !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border: none !important;
         left: auto !important;
         transform: none !important;
     }
