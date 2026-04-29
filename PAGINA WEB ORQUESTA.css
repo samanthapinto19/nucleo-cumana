@@ -1006,6 +1006,8 @@ footer p {
         background: var(--oscuro);
         padding: 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        max-height: 85vh;
+        overflow-y: auto;
     }
 
     .navbar ul.show {
