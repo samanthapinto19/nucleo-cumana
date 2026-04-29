@@ -1045,22 +1045,34 @@ footer p {
 
     /* Mostrar submenú cuando se hace clic en móvil */
     .navbar ul li.mobile-open .dropdown {
-        display: flex !important;
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.05);
-        margin: 10px 0;
+        display: block !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        margin: 5px 0 15px 20px !important;
         border-radius: 8px;
-        padding: 10px 0;
+        padding: 5px 0 !important;
+        position: static !important;
+        width: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    .navbar ul li.mobile-open .dropdown li span {
-        color: var(--blanco) !important;
-        opacity: 0.8;
+    .navbar ul li.mobile-open .dropdown li {
+        display: block !important;
+        text-align: left !important;
     }
 
-    .navbar ul li.mobile-open .dropdown li span:hover {
+    .navbar ul li.mobile-open .dropdown li span.nav-link {
+        color: #FFFFFF !important;
+        display: block !important;
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+        opacity: 1 !important;
+        background: transparent !important;
+    }
+
+    .navbar ul li.mobile-open .dropdown li span.nav-link:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
         color: var(--acento) !important;
-        opacity: 1;
     }
 
     .navbar ul li:hover .dropdown {
