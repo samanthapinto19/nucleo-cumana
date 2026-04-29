@@ -11,9 +11,9 @@
     --oscuro: #0A0A0A;
     /* Negro del logo */
     --blanco: #FFFFFF;
-    --gris-fondo: #FDFBF7;
-    /* Crema suave */
-    --azul-suave: #FFF0ED;
+    --gris-fondo: #FFFFFF;
+    /* Blanco puro para coincidir con el logo */
+    --azul-suave: #F8F9FA;
     /* Fondo cálido muy suave (mantiene el nombre de variable) */
     --texto: #222222;
     --gradiente-1: linear-gradient(135deg, #FF5E00, #E50050);
@@ -1048,28 +1048,30 @@ footer p {
     /* Mostrar submenú cuando se hace clic en móvil */
     .navbar ul li.mobile-open .dropdown {
         display: block !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        margin: 10px auto !important;
-        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        margin: 0 !important;
         padding: 10px 0 !important;
         position: static !important;
-        width: 90% !important;
+        width: 100% !important;
         opacity: 1 !important;
         visibility: visible !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .navbar ul li.mobile-open .dropdown li {
         display: block !important;
         text-align: center !important;
+        width: 100% !important;
     }
 
     .navbar ul li.mobile-open .dropdown li span.nav-link {
         color: #FFFFFF !important;
         display: block !important;
-        padding: 12px 0 !important;
-        font-size: 0.95rem !important;
-        opacity: 1 !important;
-        background: transparent !important;
+        padding: 15px 0 !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
     .navbar ul li.mobile-open .dropdown li span.nav-link:hover {
