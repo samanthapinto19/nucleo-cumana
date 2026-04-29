@@ -1045,16 +1045,35 @@ footer p {
 
     /* Mostrar submenú cuando se hace clic en móvil */
     .navbar ul li.mobile-open .dropdown {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 10px 0;
+        border-radius: 8px;
     }
 
     .navbar ul li:hover .dropdown {
-        /* Desactivar el hover en móvil para evitar conflictos */
         display: none;
     }
-    .navbar ul li.mobile-open:hover .dropdown {
+
+    .nav-item-title {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-item-title::after {
+        content: '\f107'; /* FontAwesome chevron-down */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-left: 10px;
+        transition: transform 0.3s;
+    }
+
+    .navbar ul li.mobile-open .nav-item-title::after {
+        transform: rotate(180deg);
     }
 
     /* Ajustes generales de cuadrícula y layout */

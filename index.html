@@ -654,9 +654,18 @@
 
         // Para que los submenús se puedan abrir/cerrar en móvil con un clic en el título
         document.querySelectorAll('.nav-item-title').forEach(title => {
-            title.addEventListener('click', function () {
+            title.addEventListener('click', function (e) {
                 if (window.innerWidth <= 768) {
-                    this.parentElement.classList.toggle('mobile-open');
+                    const li = this.parentElement;
+                    const isOpen = li.classList.contains('mobile-open');
+                    
+                    // Cerrar otros abiertos
+                    document.querySelectorAll('.navbar ul li').forEach(item => item.classList.remove('mobile-open'));
+                    
+                    // Si no estaba abierto, abrirlo
+                    if (!isOpen) {
+                        li.classList.add('mobile-open');
+                    }
                 }
             });
         });
