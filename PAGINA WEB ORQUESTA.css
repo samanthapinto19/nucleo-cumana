@@ -1049,24 +1049,24 @@ footer p {
     .navbar ul li.mobile-open .dropdown {
         display: block !important;
         background: rgba(255, 255, 255, 0.1) !important;
-        margin: 5px 0 15px 20px !important;
+        margin: 10px auto !important;
         border-radius: 8px;
-        padding: 5px 0 !important;
+        padding: 10px 0 !important;
         position: static !important;
-        width: auto !important;
+        width: 90% !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
 
     .navbar ul li.mobile-open .dropdown li {
         display: block !important;
-        text-align: left !important;
+        text-align: center !important;
     }
 
     .navbar ul li.mobile-open .dropdown li span.nav-link {
         color: #FFFFFF !important;
         display: block !important;
-        padding: 12px 20px !important;
+        padding: 12px 0 !important;
         font-size: 0.95rem !important;
         opacity: 1 !important;
         background: transparent !important;
