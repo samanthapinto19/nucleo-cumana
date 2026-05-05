@@ -1,136 +1,216 @@
+<!-- Declara el tipo de documento como HTML5 -->
 <!DOCTYPE html>
+<!-- Elemento raíz del documento HTML, establece el idioma como español -->
 <html lang="es">
 
+<!-- Contenedor de metadatos del documento -->
 <head>
+    <!-- Define la codificación de caracteres como UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Configura la vista para dispositivos móviles, escala inicial 1.0 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página que aparece en la pestaña del navegador -->
     <title>El Sistema - Núcleo Cumaná</title>
+    <!-- Enlace a la fuente Poppins desde Google Fonts con varios pesos -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <!-- Enlace a los iconos de Font Awesome versión 6.4.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace al archivo CSS personalizado de la página -->
     <link rel="stylesheet" href="PAGINA WEB ORQUESTA.css">
 </head>
 
+<!-- Cuerpo del documento HTML -->
 <body>
 
-    <nav class="navbar">
-        <div class="logo" onclick="showSection('bienvenida', event)" style="cursor: pointer; transition: 0.3s;"
-            onmouseover="this.style.color='var(--acento)'" onmouseout="this.style.color='var(--blanco)'">EL SISTEMA
-        </div>
-        <div class="menu-toggle" onclick="document.getElementById('nav-ul').classList.toggle('show')">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <ul id="nav-ul">
-            <li>
-                <span class="nav-item-title">Inicio</span>
-                <ul class="dropdown">
-                    <li><span class="nav-link active" onclick="showSection('bienvenida', event)">Bienvenida</span></li>
-                    <li><span class="nav-link" onclick="showSection('galeria', event)">Galería</span></li>
-                    <li><span class="nav-link" onclick="showSection('tramites', event)">Trámites y Admisión</span></li>
-                </ul>
-            </li>
-            <li>
-                <span class="nav-item-title">Institución</span>
-                <ul class="dropdown">
-                    <li><span class="nav-link" onclick="showSection('historia', event)">Historia</span></li>
-                    <li><span class="nav-link" onclick="showSection('mision-vision', event)">Misión y Visión</span></li>
-                </ul>
-            </li>
-            <li>
-                <span class="nav-item-title">Estructura Académica</span>
-                <ul class="dropdown">
-                    <li><span class="nav-link" onclick="showSection('programas', event)">Programas</span></li>
-                    <li><span class="nav-link" onclick="showSection('modulos', event)">Módulos</span></li>
-                </ul>
-            </li>
-            <li>
-                <span class="nav-item-title">Agrupaciones</span>
-                <ul class="dropdown">
-                    <li><span class="nav-link" onclick="showSection('agrupaciones', event)">Agrupaciones</span></li>
-                </ul>
-            </li>
-            <li>
-                <span class="nav-item-title">Contactos</span>
-                <ul class="dropdown">
-                    <li><span class="nav-link" onclick="showSection('direccion', event)">Dirección</span></li>
-                    <li><span class="nav-link" onclick="showSection('redes-sociales', event)">Redes Sociales</span></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<!-- Barra de navegación principal -->
+<nav class="navbar">
+    <!-- Logo del núcleo, clicable para ir a la sección de bienvenida -->
+    <div class="logo" onclick="showSection('bienvenida', event)" style="cursor: pointer; transition: 0.3s;"
+        onmouseover="this.style.color='var(--acento)'" onmouseout="this.style.color='var(--blanco)'">NÚCLEO CUMANÁ
+    </div>
+    <!-- Botón de menú hamburguesa para móviles -->
+    <div class="menu-toggle" onclick="document.getElementById('nav-ul').classList.toggle('show')">
+        <!-- Icono de barras de Font Awesome -->
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <!-- Lista de navegación -->
+    <ul id="nav-ul">
+        <!-- Elemento de menú Inicio con submenú -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title">Inicio</span>
+            <!-- Menú desplegable para Inicio -->
+            <ul class="dropdown">
+                <!-- Enlace a la sección de bienvenida, marcado como activo -->
+                <li><span class="nav-link active" onclick="showSection('bienvenida', event)">Bienvenida</span></li>
+                <!-- Enlace a la sección de galería -->
+                <li><span class="nav-link" onclick="showSection('galeria', event)">Galería</span></li>
+                <!-- Enlace a la sección de trámites -->
+                <li><span class="nav-link" onclick="showSection('tramites', event)">Trámites y Admisión</span></li>
+            </ul>
+        </li>
+        <!-- Elemento de menú Institución con submenú -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title">Institución</span>
+            <!-- Menú desplegable para Institución -->
+            <ul class="dropdown">
+                <!-- Enlace a la sección de historia -->
+                <li><span class="nav-link" onclick="showSection('historia', event)">Historia</span></li>
+                <!-- Enlace a la sección de misión y visión -->
+                <li><span class="nav-link" onclick="showSection('mision-vision', event)">Misión y Visión</span></li>
+            </ul>
+        </li>
+        <!-- Elemento de menú Estructura Académica con submenú -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title">Estructura Académica</span>
+            <!-- Menú desplegable para Estructura Académica -->
+            <ul class="dropdown">
+                <!-- Enlace a la sección de programas -->
+                <li><span class="nav-link" onclick="showSection('programas', event)">Programas</span></li>
+                <!-- Enlace a la sección de módulos -->
+                <li><span class="nav-link" onclick="showSection('modulos', event)">Módulos</span></li>
+            </ul>
+        </li>
+        <!-- Elemento de menú Agrupaciones con submenú -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title">Agrupaciones</span>
+            <!-- Menú desplegable para Agrupaciones -->
+            <ul class="dropdown">
+                <!-- Enlace a la sección de agrupaciones -->
+                <li><span class="nav-link" onclick="showSection('agrupaciones', event)">Agrupaciones</span></li>
+            </ul>
+        </li>
+        <!-- Elemento de menú Contactos con submenú -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title">Contactos</span>
+            <!-- Menú desplegable para Contactos -->
+            <ul class="dropdown">
+                <!-- Enlace a la sección de dirección -->
+                <li><span class="nav-link" onclick="showSection('direccion', event)">Dirección</span></li>
+                <!-- Enlace a la sección de redes sociales -->
+                <li><span class="nav-link" onclick="showSection('redes-sociales', event)">Redes Sociales</span></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-    <div class="content-area">
+<!-- Área principal de contenido -->
+<div class="content-area">
 
-        <!-- INICIO -> BIENVENIDA -->
-        <section id="bienvenida" class="section active">
-            <div style="padding: 100px 8%; text-align: center;">
-                <img src="logo 2.jpeg" alt="Logo El Sistema"
-                    style="max-width: 280px; margin: 0 auto 30px; display: block;">
-                <h1>NÚCLEO CUMANÁ</h1>
-                <p>Formación musical de excelencia en el corazón de Sucre.</p>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 50px;">
-                    <img src="9.jpg"
-                        style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
-                        alt="Foto 1">
-                    <img src="12.jpg"
-                        style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
-                        alt="Foto 2">
-                    <img src="16.jpg"
-                        style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
-                        alt="Foto 3">
-                </div>
+    <!-- Sección de bienvenida (página de inicio) -->
+    <section id="bienvenida" class="section active">
+        <!-- Contenedor con padding y centrado -->
+        <div style="padding: 100px 8%; text-align: center;">
+            <!-- Imagen del logo -->
+            <img src="logo 2.jpeg" alt="Logo El Sistema"
+                style="max-width: 280px; margin: 0 auto 30px; display: block;">
+            <!-- Título principal -->
+            <h1>NÚCLEO CUMANÁ</h1>
+            <!-- Subtítulo descriptivo -->
+            <p>Formación musical de excelencia en el corazón de Sucre.</p>
+            <!-- Grid de imágenes de presentación -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 50px;">
+                <!-- Primera imagen -->
+                <img src="9.jpg"
+                    style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
+                    alt="Foto 1">
+                <!-- Segunda imagen -->
+                <img src="12.jpg"
+                    style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
+                    alt="Foto 2">
+                <!-- Tercera imagen -->
+                <img src="16.jpg"
+                    style="width:100%; height:280px; object-fit:cover; border-radius:15px; box-shadow: var(--sombra-suave);"
+                    alt="Foto 3">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- INICIO -> GALERÍA -->
+        <!-- Sección de galería -->
         <section id="galeria" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 100px 8%; text-align: center;">
+                <!-- Título de la sección -->
                 <h2>GALERÍA</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
+                <!-- Grid de imágenes de galería -->
                 <div class="grid-simple-9">
+                    <!-- Primera imagen de galería -->
                     <div class="caja-img"><img src="1.jpeg" alt="Galeria"></div>
+                    <!-- Segunda imagen de galería -->
                     <div class="caja-img"><img src="8.jpg" alt="Galeria"></div>
+                    <!-- Tercera imagen de galería -->
                     <div class="caja-img"><img src="4.jpg" alt="Galeria"></div>
                 </div>
             </div>
         </section>
 
-        <!-- INICIO -> TRÁMITES Y ADMISIÓN -->
+        <!-- Sección de trámites y admisión -->
         <section id="tramites" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 100px 8%; text-align: center;">
+                <!-- Título de la sección -->
                 <h2>TRÁMITES Y ADMISIÓN</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
 
+                <!-- Contenedor de trámites -->
                 <div class="tramites-container">
+                    <!-- Subtítulo de requisitos -->
                     <h3 style="text-align: center; margin-bottom: 20px;">Requisitos de Inscripción</h3>
+                    <!-- Descripción de los requisitos -->
                     <p style="text-align: center; margin-bottom: 40px;">Para formalizar tu inscripción en el Núcleo
-                        Cumaná, debes presentar los siguientes documentos en nuestras oficinas:</p>
+                        Cumaná, debes presentar los siguientes documentos en nuestra oficina:</p>
 
+                    <!-- Lista de requisitos -->
                     <div class="requisitos-list">
+                        <!-- Requisito 1: Cédula -->
                         <div class="requisito-card">
+                            <!-- Icono de cédula -->
                             <i class="fa-solid fa-id-card"></i>
+                            <!-- Texto del requisito -->
                             <p>Copia de cédula vigente del alumno y del representante (si es menor de edad).</p>
                         </div>
+                        <!-- Requisito 2: Foto -->
                         <div class="requisito-card">
+                            <!-- Icono de cámara -->
                             <i class="fa-solid fa-camera-retro"></i>
+                            <!-- Texto del requisito -->
                             <p>Foto tipo carnet del alumno y representante.</p>
                         </div>
+                        <!-- Requisito 3: RIF -->
                         <div class="requisito-card">
+                            <!-- Icono de archivo -->
                             <i class="fa-solid fa-file-invoice"></i>
+                            <!-- Texto del requisito -->
                             <p>RIF actualizado del representante.</p>
                         </div>
+                        <!-- Requisito 4: Carta de residencia -->
                         <div class="requisito-card">
+                            <!-- Icono de casa -->
                             <i class="fa-solid fa-house-user"></i>
+                            <!-- Texto del requisito -->
                             <p>Carta de residencia emitida por el consejo comunal.</p>
                         </div>
                     </div>
 
+                    <!-- Tarjeta de descarga de planilla -->
                     <div class="descarga-card">
+                        <!-- Título de la tarjeta -->
                         <h3>Planilla de Inscripción</h3>
-                        <p>Descarga, imprime y completa la planilla con tus datos antes de dirigirte al núcleo.</p>
+                        <!-- Descripción -->
+                        <p>Descarga, imprime y completa la planilla con tus datos.</p>
+                        <!-- Enlace de descarga -->
                         <a href="PLANILLA DE INSCRIPCION_041219.pdf" download="Planilla_Inscripcion_Nucleo_Cumana.pdf"
                             class="btn-dorado">
+                            <!-- Icono de descarga -->
                             <i class="fa-solid fa-download" style="margin-right: 10px;"></i> Descargar Planilla
                         </a>
                     </div>
@@ -138,11 +218,15 @@
             </div>
         </section>
 
-        <!-- INSTITUCIÓN -> HISTORIA -->
+        <!-- Sección de historia -->
         <section id="historia" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 100px 8%; text-align: center;">
+                <!-- Título de la sección -->
                 <h2>HISTORIA</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
+                <!-- Párrafo introductorio -->
                 <p style="max-width: 800px; margin: 0 auto 50px; font-size: 1.1rem; line-height: 1.8;">
                     Impulsados por la visión del <strong>Mtro. Dr. José Antonio Abreu</strong> y guiados por la batuta
                     del <strong>Mtro. Pastor Suárez</strong>, la alegría de la música llegó a las riberas del río
@@ -150,29 +234,46 @@
                     excelencia.
                 </p>
 
+                <!-- Grid de tarjetas de historia -->
                 <div class="history-grid">
+                    <!-- Tarjeta de historia 1 -->
                     <div class="history-card">
+                        <!-- Año del evento -->
                         <div class="h-year">Enero 1978</div>
+                        <!-- Título del evento -->
                         <h3>Los Primeros Acordes</h3>
+                        <!-- Descripción del evento -->
                         <p>El Mtro. José Antonio Abreu reúne a 150 aspirantes en el Palacio Episcopal de Cumaná,
                             seleccionando a diez talentosos músicos para formarlos como los primeros guías de enseñanza
                             del Estado Sucre.</p>
                     </div>
+                    <!-- Tarjeta de historia 2 -->
                     <div class="history-card">
+                        <!-- Año del evento -->
                         <div class="h-year">13 de Marzo 1978</div>
+                        <!-- Título del evento -->
                         <h3>Fundación del Núcleo</h3>
+                        <!-- Descripción del evento -->
                         <p>Abre sus puertas el primer núcleo del Estado Sucre en la casa natal del poeta José Antonio
                             Ramos Sucre, bajo la dirección fundadora del Mtro. Pastor Suárez.</p>
                     </div>
+                    <!-- Tarjeta de historia 3 -->
                     <div class="history-card">
+                        <!-- Año del evento -->
                         <div class="h-year">1 de Diciembre 1996</div>
+                        <!-- Título del evento -->
                         <h3>Nace la Orquesta Infantil</h3>
+                        <!-- Descripción del evento -->
                         <p>El núcleo se expande con la creación de la Orquesta Infantil, sembrando la semilla de la
                             música en las nuevas generaciones, bajo la dirección del Prof. Johnny Potella.</p>
                     </div>
+                    <!-- Tarjeta de historia 4 -->
                     <div class="history-card">
+                        <!-- Año del evento -->
                         <div class="h-year">Actualidad</div>
+                        <!-- Título del evento -->
                         <h3>Un Legado en Crecimiento</h3>
+                        <!-- Descripción del evento -->
                         <p>Bajo la dirección del Maestro Johnny Potella Williams, el Núcleo Cumaná alberga a más de
                             1.078 niños y jóvenes, proyectándose hacia nuevas iniciativas de rescate social.</p>
                     </div>
@@ -213,87 +314,133 @@
             </div>
         </section>
 
-        <!-- ESTRUCTURA ACADÉMICA -> PROGRAMAS -->
+        <!-- Sección de programas -->
         <section id="programas" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 80px 5%; text-align: center;">
+                <!-- Título de la sección -->
                 <h2>PROGRAMAS</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
+                <!-- Grid de tarjetas de programas -->
                 <div class="programs-grid">
+                    <!-- Tarjeta del programa académico orquestal -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img src="11.jpg" alt="Programa Académico Orquestal"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa Académico Orquestal</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-orquestal', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa de iniciación musical -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img
                                 src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?q=80&w=600"
                                 alt="Programa de Iniciación Musical"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa de Iniciación Musical</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-iniciacion', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa de educación especial -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img
                                 src="https://images.unsplash.com/photo-1581078426770-6d336e5de7bf?q=80&w=600"
                                 alt="Programa de Educación Especial"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa de Educación Especial</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-especial', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa académico coral -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img src="10.jpg" alt="Programa Académico Coral"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa Académico Coral</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-coral', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa alma llanera -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img
                                 src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=600"
                                 alt="Programa Alma Llanera"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa Alma Llanera</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-llanera', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa simón bolívar -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img
                                 src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?q=80&w=600"
                                 alt="Programa Simón Bolívar"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa Simón Bolívar</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-bolivar', event)">Leer más</button>
                             </div>
                         </div>
                     </div>
+                    <!-- Tarjeta del programa de música popular -->
                     <div class="program-card">
+                        <!-- Imagen del programa -->
                         <div class="card-img"><img
                                 src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=600"
                                 alt="Programa de Música Popular y otros Géneros"></div>
+                        <!-- Contenido de la tarjeta -->
                         <div class="card-content">
+                            <!-- Título del programa -->
                             <h3>Programa de Música Popular y otros Géneros</h3>
+                            <!-- Contenedor de botones -->
                             <div class="badge-container" style="margin-top: 15px;">
+                                <!-- Botón para leer más -->
                                 <button class="btn-wix" style="width: 100%;"
                                     onclick="showSection('detalle-popular', event)">Leer más</button>
                             </div>
@@ -446,22 +593,30 @@
             </div>
         </section>
 
+        <!-- Sección de detalle del programa de música popular -->
         <section id="detalle-popular" class="section">
+            <!-- Contenedor en fila con imagen y texto -->
             <div class="wix-row">
+                <!-- Columna de imagen -->
                 <div class="wix-col-img"><img
                         src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=600"
                         alt="Programa de Música Popular y otros Géneros"></div>
+                <!-- Columna de texto con fondo blanco -->
                 <div class="wix-col-text bg-white" style="border-top: 5px solid #E3001B;">
+                    <!-- Título del programa -->
                     <h3 style="color: #E3001B; font-size: 2rem;">Programa de Música Popular y otros Géneros</h3>
+                    <!-- Descripción del programa -->
                     <p style="text-align: justify; font-size: 1rem; margin-top: 20px;">Este es uno de los grandes
                         alcances desde el punto de vista musical y académico de la institución, al ofrecer expansión y
                         proyección a una amplia gama de ritmos y géneros. Contribuye con la consolidación de bandas de
                         jazz, rock sinfónico, música afroamericana, latinoamericana y caribeña.</p>
+                    <!-- Número de integrantes -->
                     <div style="margin: 20px 0;">
                         <span
                             style="background: rgba(227, 0, 27, 0.1); color: #E3001B; border: 1px solid rgba(227, 0, 27, 0.2); padding: 8px 16px; border-radius: 50px; font-weight: 700;">•
                             122 Integrantes</span>
                     </div>
+                    <!-- Botón para volver a programas -->
                     <button class="btn-wix" onclick="showSection('programas', event)"
                         style="background: #E3001B; align-self: flex-start; margin-top: 30px;"><i
                             class="fa-solid fa-arrow-left"></i> Volver a Programas</button>
@@ -469,105 +624,148 @@
             </div>
         </section>
 
-        <!-- ESTRUCTURA ACADÉMICA -> MÓDULOS -->
+        <!-- Sección de módulos -->
         <section id="modulos" class="section">
+            <!-- Contenedor en fila invertida -->
             <div class="wix-row reverse">
+                <!-- Columna de texto con fondo blanco -->
                 <div class="wix-col-text bg-white">
+                    <!-- Título de la sección -->
                     <h2>MÓDULOS</h2>
+                    <!-- Descripción -->
                     <p>Encuentra el centro de enseñanza más cercano a tu comunidad.</p>
+                    <!-- Botón para ver ubicaciones -->
                     <a href="#" class="btn-wix">Ver Ubicaciones</a>
                 </div>
+                <!-- Columna de imagen -->
                 <div class="wix-col-img"><img
                         src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800" alt="Módulos">
                 </div>
             </div>
         </section>
 
-        <!-- AGRUPACIONES -> AGRUPACIONES -->
+        <!-- Sección de agrupaciones -->
         <section id="agrupaciones" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 100px 8%; text-align: center;">
+                <!-- Subtítulo -->
                 <p style="letter-spacing: 3px; color: var(--primario); font-weight: 800; margin-bottom: 20px;">NUESTRO
                     TALENTO</p>
+                <!-- Título de la sección -->
                 <h2>AGRUPACIONES</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
 
+                <!-- Grid de agrupaciones -->
                 <div class="agrupaciones-grid">
-                    <!-- ORQUESTA SINFONICA PRE INFANTIL -->
+                    <!-- Tarjeta de orquesta sinfónica pre infantil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="13.jpg" alt="ORQUESTA SINFONICA PRE INFANTIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA SINFONICA PRE INFANTIL</h4>
                         </div>
                     </div>
 
-                    <!-- ORQUESTA SINFONICA INFANTIL -->
+                    <!-- Tarjeta de orquesta sinfónica infantil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="14.jpg" alt="ORQUESTA SINFONICA INFANTIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA SINFONICA INFANTIL</h4>
                         </div>
                     </div>
 
-                    <!-- ORQUESTA SINFONICA JUVENIL -->
+                    <!-- Tarjeta de orquesta sinfónica juvenil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="17.jpg" alt="ORQUESTA SINFONICA JUVENIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA SINFONICA JUVENIL</h4>
                         </div>
                     </div>
 
-                    <!-- CORO SINFÓNICO INFANTIL -->
+                    <!-- Tarjeta de coro sinfónico infantil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="10.jpg" alt="CORO SINFÓNICO INFANTIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>CORO SINFÓNICO INFANTIL</h4>
                         </div>
                     </div>
 
-                    <!-- CORO SINFÓNICO JUVENIL -->
+                    <!-- Tarjeta de coro sinfónico juvenil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="16.jpg" alt="CORO SINFÓNICO JUVENIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>CORO SINFÓNICO JUVENIL</h4>
                         </div>
                     </div>
 
-                    <!-- ORQUESTA ALMA LLANERA INFANTIL -->
+                    <!-- Tarjeta de orquesta alma llanera infantil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="8.jpg" alt="ORQUESTA ALMA LLANERA INFANTIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA ALMA LLANERA INFANTIL</h4>
                         </div>
                     </div>
 
-                    <!-- ORQUESTA ALMA LLANERA JUVENIL -->
+                    <!-- Tarjeta de orquesta alma llanera juvenil -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="5.jpg" alt="ORQUESTA ALMA LLANERA JUVENIL">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA ALMA LLANERA JUVENIL</h4>
                         </div>
                     </div>
 
-                    <!-- ORQUESTA LATINO CARIBEÑA -->
+                    <!-- Tarjeta de orquesta latino caribeña -->
                     <div class="agrupacion-card">
+                        <!-- Contenedor de imagen -->
                         <div class="agrupacion-img-container">
+                            <!-- Imagen de la agrupación -->
                             <img src="6.jpg" alt="ORQUESTA LATINO CARIBEÑA">
                         </div>
+                        <!-- Información de la agrupación -->
                         <div class="agrupacion-info">
+                            <!-- Nombre de la agrupación -->
                             <h4>ORQUESTA LATINO CARIBEÑA</h4>
                         </div>
                     </div>
@@ -575,41 +773,64 @@
             </div>
         </section>
 
-        <!-- CONTACTOS -> DIRECCIÓN -->
+        <!-- Sección de dirección y contacto -->
         <section id="direccion" class="section">
+            <!-- Contenedor con padding y centrado -->
             <div style="padding: 100px 8%; text-align: center;">
+                <!-- Título de la sección -->
                 <h2>DIRECCIÓN Y CONTACTO</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
 
+                <!-- Grid de información de contacto -->
                 <div class="contacto-grid">
+                    <!-- Item de ubicación -->
                     <div class="contacto-item">
+                        <!-- Icono de ubicación -->
                         <i class="fa-solid fa-map-location-dot"></i>
+                        <!-- Título del item -->
                         <h3>Ubicación</h3>
+                        <!-- Descripción -->
                         <p>Concha Acústica del Parque Guaiquerí, Cumaná - Estado Sucre.</p>
                     </div>
+                    <!-- Item de teléfono -->
                     <div class="contacto-item">
+                        <!-- Icono de teléfono -->
                         <i class="fa-solid fa-phone"></i>
+                        <!-- Título del item -->
                         <h3>Teléfono</h3>
+                        <!-- Descripción -->
                         <p>+58 293 123 4567<br>Lunes a Viernes, 8am - 5pm</p>
                     </div>
+                    <!-- Item de correo -->
                     <div class="contacto-item">
+                        <!-- Icono de correo -->
                         <i class="fa-solid fa-envelope"></i>
+                        <!-- Título del item -->
                         <h3>Correo</h3>
+                        <!-- Descripción -->
                         <p>info@nucleocumana.org</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACTOS -> REDES SOCIALES -->
+        <!-- Sección de redes sociales -->
         <section id="redes-sociales" class="section">
+            <!-- Contenedor con padding, centrado y fondo oscuro -->
             <div style="padding: 100px 8%; text-align: center; background-color: var(--oscuro); color: var(--blanco);">
+                <!-- Título de la sección -->
                 <h2 style="color: var(--blanco);">SÍGUENOS EN NUESTRAS REDES</h2>
+                <!-- Decorador de título -->
                 <div class="title-decorator"></div>
+                <!-- Descripción -->
                 <p style="color: #ccc;">Mantente al día con nuestros conciertos, audiciones y noticias destacadas.</p>
 
+                <!-- Enlaces a redes sociales -->
                 <div class="social-links">
+                    <!-- Enlace a Instagram -->
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- Enlace a Facebook -->
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
@@ -617,49 +838,57 @@
 
     </div>
 
+    <!-- Pie de página -->
     <footer>
+        <!-- Texto de copyright -->
         <p>&copy; 2026 Núcleo Cumaná | El Sistema Nacional de Orquestas</p>
     </footer>
 
-    <!-- Botón Flotante Volver Arriba -->
+    <!-- Botón flotante para volver arriba -->
     <div id="btn-volver-arriba" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
         style="position: fixed; bottom: 30px; right: 30px; background: var(--primario); color: var(--blanco); width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: var(--sombra-fuerte); z-index: 1000; transition: all 0.3s ease; opacity: 0; pointer-events: none; font-size: 1.2rem;">
+        <!-- Icono de flecha hacia arriba -->
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
+    <!-- Script JavaScript para funcionalidad de la página -->
     <script>
+        // Función para mostrar una sección específica
         function showSection(sectionId, e) {
-            // Prevenir scroll default si es <a>
+            // Prevenir el comportamiento por defecto si es un enlace
             if (e) e.preventDefault();
 
-            // Ocultar todas las secciones
+            // Ocultar todas las secciones removiendo la clase 'active'
             document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            // Desactivar links
+            // Desactivar todos los enlaces de navegación
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
 
-            // Mostrar la elegida
+            // Mostrar la sección seleccionada agregando la clase 'active'
             document.getElementById(sectionId).classList.add('active');
 
-            // Activar link actual
+            // Activar el enlace correspondiente si fue clicado
             if (e && e.target.classList.contains('nav-link')) {
                 e.target.classList.add('active');
             }
 
-            // Ocultar menú móvil si está abierto
+            // Ocultar el menú móvil si está abierto
             document.getElementById('nav-ul').classList.remove('show');
 
-            // Scroll arriba
+            // Desplazar la página hacia arriba suavemente
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Para que los submenús se puedan abrir/cerrar en móvil con un clic en el título
+        // Event listener para los títulos de navegación en móvil
         document.querySelectorAll('.nav-item-title').forEach(title => {
             title.addEventListener('click', function (e) {
+                // Solo en dispositivos móviles (ancho <= 768px)
                 if (window.innerWidth <= 768) {
+                    // Obtener el elemento padre (li)
                     const li = this.parentElement;
+                    // Verificar si ya está abierto
                     const isOpen = li.classList.contains('mobile-open');
                     
-                    // Cerrar otros abiertos
+                    // Cerrar otros submenús abiertos
                     document.querySelectorAll('.navbar ul li').forEach(item => item.classList.remove('mobile-open'));
                     
                     // Si no estaba abierto, abrirlo
@@ -670,14 +899,17 @@
             });
         });
 
-        // Lógica del botón flotante
+        // Event listener para el botón flotante de volver arriba
         window.addEventListener('scroll', function () {
+            // Obtener el botón
             const btn = document.getElementById('btn-volver-arriba');
+            // Si el scroll es mayor a 300px, mostrar el botón
             if (window.scrollY > 300) {
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
                 btn.style.transform = 'translateY(0)';
             } else {
+                // Ocultar el botón
                 btn.style.opacity = '0';
                 btn.style.pointerEvents = 'none';
                 btn.style.transform = 'translateY(10px)';
