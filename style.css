@@ -1,0 +1,1984 @@
+/* Importa la fuente Poppins desde Google Fonts con varios pesos para usar en el sitio */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Define variables CSS personalizadas para colores, gradientes y sombras usados en todo el sitio */
+:root {
+    /* Color primario: naranja vibrante tomado del logo */
+    --primario: #FF5E00;
+    /* Color secundario: rosa/magenta tomado del logo */
+    --secundario: #E50050;
+    /* Color de acento: naranja para detalles */
+    --acento: #FF5E00;
+    /* Color rosa, alias del secundario */
+    --rosa: #E50050;
+    /* Color oscuro: negro tomado del logo */
+    --oscuro: #0A0A0A;
+    /* Color blanco puro */
+    --blanco: #FFFFFF;
+    /* Color de fondo gris: blanco puro para coincidir con el logo */
+    --gris-fondo: #FFFFFF;
+    /* Color azul suave: fondo cálido muy suave */
+    --azul-suave: #F8F9FA;
+    /* Color de texto: gris oscuro para legibilidad */
+    --texto: #222222;
+    /* Gradiente 1: gradiente lineal de naranja a rosa */
+    --gradiente-1: linear-gradient(135deg, #FF5E00, #E50050);
+    /* Gradiente 2: gradiente lineal de rosa a naranja */
+    --gradiente-2: linear-gradient(135deg, #E50050, #FF5E00);
+    /* Sombra suave: sombra con opacidad baja */
+    --sombra-suave: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Sombra fuerte: sombra con opacidad media */
+    --sombra-fuerte: 0 20px 40px rgba(255, 94, 0, 0.2);
+}
+
+/* Selector universal: resetea márgenes, paddings, usa box-sizing border-box y establece fuente Poppins para todos los elementos */
+* {
+    /* Elimina márgenes por defecto */
+    margin: 0;
+    /* Elimina paddings por defecto */
+    padding: 0;
+    /* Incluye padding y border en el ancho/alto total */
+    box-sizing: border-box;
+    /* Establece la fuente Poppins para todo el documento */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+    /* Color de fondo usando variable gris-fondo */
+    background-color: var(--gris-fondo);
+    /* Color de texto usando variable texto */
+    color: var(--texto);
+    /* Oculta desbordamiento horizontal */
+    overflow-x: hidden;
+    /* Posición relativa para posicionamiento de hijos */
+    position: relative;
+}
+
+/* Comentario: Fondo sólido sin animación (posiblemente para futuras referencias) */
+
+/* --- NAVBAR ESTILO DINÁMICO --- */
+/* Estilos para la barra de navegación */
+.navbar {
+    /* Fondo negro casi puro con blur de fondo */
+    background: rgb(0, 1, 3);
+    /* Filtro de fondo blur para efecto glassmorphism */
+    backdrop-filter: blur(12px);
+    /* Prefijo webkit para compatibilidad */
+    -webkit-backdrop-filter: blur(12px);
+    /* Display flex para alinear elementos */
+    display: flex;
+    /* Espacia elementos entre sí */
+    justify-content: space-between;
+    /* Centra verticalmente */
+    align-items: center;
+    /* Padding interno: 20px arriba/abajo, 8% izquierda/derecha */
+    padding: 20px 8%;
+    /* Posición fija en la parte superior */
+    position: fixed;
+    /* Ancho completo */
+    width: 100%;
+    /* Pegado arriba */
+    top: 0;
+    /* Z-index alto para estar sobre otros elementos */
+    z-index: 1000;
+    /* Borde inferior sutil blanco translúcido */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para el logo en la navbar */
+.logo {
+    /* Color blanco */
+    color: var(--blanco);
+    /* Peso de fuente extra bold */
+    font-weight: 800;
+    /* Espaciado entre letras */
+    letter-spacing: 2px;
+    /* Tamaño de fuente 1.3rem */
+    font-size: 1.3rem;
+}
+
+/* Estilos para la lista ul dentro de navbar */
+.navbar ul {
+    /* Display flex para elementos en línea */
+    display: flex;
+    /* Elimina estilo de lista */
+    list-style: none;
+    /* Margen cero */
+    margin: 0;
+    /* Padding cero */
+    padding: 0;
+}
+
+/* Estilos para cada li en la navbar ul */
+.navbar ul li {
+    /* Margen izquierdo de 25px */
+    margin-left: 25px;
+    /* Posición relativa para dropdown */
+    position: relative;
+    /* Padding inferior de 10px */
+    padding-bottom: 10px;
+}
+
+/* Estilos para los títulos de elementos de navegación */
+.nav-item-title {
+    /* Color blanco */
+    color: var(--blanco);
+    /* Tamaño de fuente 0.85rem */
+    font-size: 0.85rem;
+    /* Peso de fuente semi-bold */
+    font-weight: 600;
+    /* Cursor pointer para indicar clickeable */
+    cursor: pointer;
+    /* Transición suave de 0.3s */
+    transition: 0.3s ease;
+    /* Display inline-block */
+    display: inline-block;
+}
+
+/* Estilos hover para nav-item-title */
+.nav-item-title:hover {
+    /* Cambia color a acento (naranja) */
+    color: var(--acento);
+    /* Mueve ligeramente hacia arriba */
+    transform: translateY(-2px);
+    /* Fondo transparente para quitar cualquier fondo blanco */
+    background: transparent;
+}
+
+/* Dropdown - Estilos para el menú desplegable */
+.dropdown {
+    /* Posición absoluta */
+    position: absolute;
+    /* Arriba al 100% del padre */
+    top: 100%;
+    /* Izquierda centrada */
+    left: 50%;
+    /* Transforma para centrar */
+    transform: translateX(-50%) translateY(20px);
+    /* Fondo blanco */
+    background: var(--blanco);
+    /* Ancho mínimo 220px */
+    min-width: 220px;
+    /* Sombra suave */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    /* Bordes redondeados */
+    border-radius: 12px;
+    /* Opacidad inicial 0 (oculto) */
+    opacity: 0;
+    /* Visibilidad hidden */
+    visibility: hidden;
+    /* Transición suave */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Display flex columna */
+    display: flex;
+    /* Dirección flex columna */
+    flex-direction: column;
+    /* Padding interno 15px arriba/abajo, 0 izquierda/derecha */
+    padding: 15px 0;
+    /* Z-index alto */
+    z-index: 1001;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+}
+
+/* Estilos para mostrar dropdown al hover del li padre */
+.navbar ul li:hover .dropdown {
+    /* Opacidad 1 (visible) */
+    opacity: 1;
+    /* Visibilidad visible */
+    visibility: visible;
+    /* Transforma a posición normal */
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Estilos para enlaces dentro del dropdown */
+.nav-link {
+    /* Display block */
+    display: block;
+    /* Padding 12px arriba/abajo, 25px izquierda/derecha */
+    padding: 12px 25px;
+    /* Color de texto */
+    color: var(--texto);
+    /* Sin decoración de texto */
+    text-decoration: none;
+    /* Tamaño de fuente 0.85rem */
+    font-size: 0.85rem;
+    /* Peso de fuente medium */
+    font-weight: 500;
+    /* Transición 0.3s */
+    transition: 0.3s;
+    /* Cursor pointer */
+    cursor: pointer;
+    /* Alineación izquierda */
+    text-align: left;
+    /* Posición relativa para pseudo-elementos */
+    position: relative;
+}
+
+/* Estilos hover y active para nav-link */
+.nav-link:hover,
+.nav-link.active {
+    /* Color primario */
+    color: var(--primario);
+    /* Padding izquierdo aumentado */
+    padding-left: 30px;
+}
+
+/* Pseudo-elemento ::before para nav-link */
+.nav-link::before {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Izquierda 0 */
+    left: 0;
+    /* Arriba 0 */
+    top: 0;
+    /* Altura 100% */
+    height: 100%;
+    /* Ancho 4px */
+    width: 4px;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Escala Y inicial 0 (oculto) */
+    transform: scaleY(0);
+    /* Transición 0.3s */
+    transition: 0.3s;
+}
+
+/* Estilos para mostrar ::before en hover y active */
+.nav-link:hover::before,
+.nav-link.active::before {
+    /* Escala Y a 1 (visible) */
+    transform: scaleY(1);
+}
+
+/* --- SISTEMA DE SECCIONES --- */
+/* Estilos para el área de contenido principal */
+.content-area {
+    /* Margen superior de 75px para compensar navbar fija */
+    margin-top: 75px;
+    /* Altura mínima: 100vh menos 75px */
+    min-height: calc(100vh - 75px);
+}
+
+/* Estilos para secciones individuales */
+.section {
+    /* Oculta por defecto */
+    display: none;
+    /* Animación de entrada */
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estilos para sección activa */
+.section.active {
+    /* Muestra la sección */
+    display: block;
+}
+
+.hero-hero {
+    position: relative;
+    width: 100%;
+    min-height: 72vh;
+    max-height: 780px;
+    background-image: url("18.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 8% 80px;
+    margin-bottom: 40px;
+}
+
+.hero-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.hero-eyebrow {
+    margin: 0 0 18px;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.95;
+}
+
+.hero-text h1 {
+    margin: 0 0 20px;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+.hero-text p {
+    margin: 0 auto;
+    max-width: 760px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 8%;
+    margin-bottom: 60px;
+}
+
+.hero-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: var(--sombra-suave);
+}
+
+/* Animación keyframes para slideUpFade */
+@keyframes slideUpFade {
+    /* Estado inicial: opacidad 0, translateY 30px */
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    /* Estado final: opacidad 1, translateY 0 */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ESTILOS GENERALES Y TEXTOS --- */
+/* Estilos para encabezado h1 */
+h1 {
+    /* Tamaño de fuente 3.8rem */
+    font-size: 3.8rem;
+    /* Peso de fuente extra bold */
+    font-weight: 800;
+    /* Margen inferior 20px */
+    margin-bottom: 20px;
+    /* Color oscuro */
+    color: var(--oscuro);
+    /* Altura de línea 1.1 */
+    line-height: 1.1;
+}
+
+/* Estilos para encabezado h2 */
+h2 {
+    /* Tamaño de fuente 2.8rem */
+    font-size: 2.8rem;
+    /* Peso de fuente extra bold */
+    font-weight: 800;
+    /* Margen inferior 20px */
+    margin-bottom: 20px;
+    /* Color oscuro */
+    color: var(--oscuro);
+    /* Transforma texto a mayúsculas */
+    text-transform: uppercase;
+    /* Espaciado entre letras -1px */
+    letter-spacing: -1px;
+}
+
+/* Estilos para encabezado h3 */
+h3 {
+    /* Tamaño de fuente 1.5rem */
+    font-size: 1.5rem;
+    /* Peso de fuente bold */
+    font-weight: 700;
+    /* Margen inferior 15px */
+    margin-bottom: 15px;
+    /* Color primario */
+    color: var(--primario);
+}
+
+/* Estilos para párrafos p */
+p {
+    /* Tamaño de fuente 1.05rem */
+    font-size: 1.05rem;
+    /* Altura de línea 1.8 */
+    line-height: 1.8;
+    /* Color de texto */
+    color: var(--texto);
+    /* Margen inferior 20px */
+    margin-bottom: 20px;
+}
+
+/* Decorador de títulos (reemplaza la línea dorada) */
+/* Estilos para el decorador de títulos */
+.title-decorator {
+    /* Ancho 80px */
+    width: 80px;
+    /* Altura 6px */
+    height: 6px;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Margen 20px arriba, auto izquierda/derecha, 50px abajo */
+    margin: 20px auto 50px;
+    /* Bordes redondeados */
+    border-radius: 10px;
+}
+
+/* --- DISEÑO DE BLOQUES --- */
+/* Estilos para filas wix (layout de dos columnas) */
+.wix-row {
+    /* Display flex */
+    display: flex;
+    /* Altura mínima 500px */
+    min-height: 500px;
+    /* Ancho 100% */
+    width: 100%;
+}
+
+/* Estilos para wix-row con clase reverse */
+.wix-row.reverse {
+    /* Dirección flex reversa */
+    flex-direction: row-reverse;
+}
+
+/* Estilos para columna de texto */
+.wix-col-text {
+    /* Flex 1 (ocupa espacio disponible) */
+    flex: 1;
+    /* Display flex */
+    display: flex;
+    /* Dirección columna */
+    flex-direction: column;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Padding 80px arriba/abajo, 10% izquierda/derecha */
+    padding: 80px 10%;
+    /* Alineación izquierda */
+    text-align: left;
+}
+
+/* Estilos para columna de imagen */
+.wix-col-img {
+    /* Flex 1 */
+    flex: 1;
+    /* Color de fondo gris */
+    background-color: var(--gris-fondo);
+    /* Posición relativa */
+    position: relative;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+}
+
+/* Estilos para imagen dentro de wix-col-img */
+.wix-col-img img {
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 100% */
+    height: 100%;
+    /* Ajusta imagen para cubrir */
+    object-fit: cover;
+    /* Display block */
+    display: block;
+    /* Transición de transform 0.6s */
+    transition: transform 0.6s;
+}
+
+/* Estilos para imagen al hover de wix-row */
+.wix-row:hover .wix-col-img img {
+    /* Escala imagen a 1.05 */
+    transform: scale(1.05);
+}
+
+/* Colores de fondo (Glassmorphism) */
+/* Estilos para fondo blanco glassmorphism */
+.bg-white {
+    /* Fondo blanco translúcido */
+    background: rgba(255, 255, 255, 0.75);
+    /* Filtro blur */
+    backdrop-filter: blur(12px);
+    /* Borde superior sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para fondo soft glassmorphism */
+.bg-soft {
+    /* Fondo azul suave translúcido */
+    background: rgba(239, 246, 255, 0.75);
+    /* Filtro blur */
+    backdrop-filter: blur(12px);
+    /* Borde superior sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para fondo gris glassmorphism */
+.bg-gray {
+    /* Fondo gris translúcido */
+    background: rgba(248, 250, 252, 0.75);
+    /* Filtro blur */
+    backdrop-filter: blur(12px);
+    /* Borde superior sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Botón Dinámico */
+/* Estilos para botones wix */
+.btn-wix {
+    /* Display inline-block */
+    display: inline-block;
+    /* Padding 14px arriba/abajo, 35px izquierda/derecha */
+    padding: 14px 35px;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Color blanco */
+    color: var(--blanco);
+    /* Sin decoración */
+    text-decoration: none;
+    /* Tamaño fuente 0.95rem */
+    font-size: 0.95rem;
+    /* Peso bold */
+    font-weight: 600;
+    /* Bordes redondeados */
+    border-radius: 50px;
+    /* Transición suave */
+    transition: all 0.3s ease;
+    /* Margen superior 15px */
+    margin-top: 15px;
+    /* Sombra azul */
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    /* Sin borde */
+    border: none;
+    /* Cursor pointer */
+    cursor: pointer;
+}
+
+/* Estilos hover para btn-wix */
+.btn-wix:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-3px);
+    /* Sombra más intensa */
+    box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* --- ALINEACIÓN DE PROGRAMAS (CARDS DINÁMICAS) --- */
+/* Estilos para grid de programas */
+.programs-grid {
+    /* Display grid */
+    display: grid;
+    /* Columnas auto-fit, min 320px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Gap 40px */
+    gap: 40px;
+    /* Ancho máximo 1200px */
+    max-width: 1200px;
+    /* Margen auto para centrar */
+    margin: 0 auto;
+}
+
+/* Estilos para cada tarjeta de programa */
+.program-card {
+    /* Fondo blanco translúcido con blur */
+    background: rgba(255, 255, 255, 0.85);
+    /* Filtro blur */
+    backdrop-filter: blur(10px);
+    /* Prefijo webkit */
+    -webkit-backdrop-filter: blur(10px);
+    /* Bordes redondeados */
+    border-radius: 20px;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Display flex */
+    display: flex;
+    /* Dirección columna */
+    flex-direction: column;
+    /* Altura 100% */
+    height: 100%;
+    /* Transición suave */
+    transition: all 0.4s ease;
+    /* Borde sutil */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    /* Posición relativa */
+    position: relative;
+}
+
+/* Estilos hover para program-card */
+.program-card:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-10px);
+    /* Sombra fuerte */
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* Estilos para contenedor de imagen de tarjeta */
+.card-img {
+    /* Altura 240px */
+    height: 240px;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Posición relativa */
+    position: relative;
+}
+
+/* Estilos para imagen dentro de card-img */
+.card-img img {
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 100% */
+    height: 100%;
+    /* Object fit cover */
+    object-fit: cover;
+    /* Transición transform 0.6s */
+    transition: transform 0.6s ease;
+}
+
+/* Estilos para imagen al hover de program-card */
+.program-card:hover .card-img img {
+    /* Escala a 1.1 */
+    transform: scale(1.1);
+}
+
+/* Pseudo-elemento ::after para card-img */
+.card-img::after {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Abajo 0 */
+    bottom: 0;
+    /* Izquierda 0 */
+    left: 0;
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 50% */
+    height: 50%;
+    /* Gradiente de negro a transparente */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+}
+
+/* Estilos para contenido de tarjeta */
+.card-content {
+    /* Padding 30px */
+    padding: 30px;
+    /* Flex grow 1 */
+    flex-grow: 1;
+    /* Display flex */
+    display: flex;
+    /* Dirección columna */
+    flex-direction: column;
+}
+
+/* Estilos para h3 dentro de card-content */
+.card-content h3 {
+    /* Margen inferior 15px */
+    margin-bottom: 15px;
+    /* Color oscuro */
+    color: var(--oscuro);
+    /* Tamaño fuente 1.4rem */
+    font-size: 1.4rem;
+}
+
+/* Estilos para p dentro de card-content */
+.card-content p {
+    /* Flex grow 1 */
+    flex-grow: 1;
+    /* Margen inferior 25px */
+    margin-bottom: 25px;
+    /* Tamaño fuente 0.95rem */
+    font-size: 0.95rem;
+    /* Color gris */
+    color: #64748B;
+}
+
+/* Estilos para contenedor de badge */
+.badge-container {
+    /* Margen superior auto */
+    margin-top: auto;
+}
+
+/* Estilos para badge de stats */
+.stats-badge {
+    /* Fondo azul suave */
+    background: var(--azul-suave);
+    /* Color primario */
+    color: var(--primario);
+    /* Padding 8px arriba/abajo, 16px izquierda/derecha */
+    padding: 8px 16px;
+    /* Bordes redondeados */
+    border-radius: 50px;
+    /* Peso bold */
+    font-weight: 700;
+    /* Tamaño fuente 0.85rem */
+    font-size: 0.85rem;
+    /* Display inline-flex */
+    display: inline-flex;
+    /* Alinea items center */
+    align-items: center;
+    /* Gap 8px */
+    gap: 8px;
+}
+
+/* Pseudo-elemento ::before para stats-badge */
+.stats-badge::before {
+    /* Contenido bullet */
+    content: '•';
+    /* Color secundario */
+    color: var(--secundario);
+    /* Tamaño fuente 1.5rem */
+    font-size: 1.5rem;
+    /* Line height 0 */
+    line-height: 0;
+}
+
+/* Colores distintos para cada tarjeta de Programa */
+/* Estilos para la primera tarjeta de programa */
+.program-card:nth-child(1) {
+    /* Borde superior rojo vino */
+    border-top: 5px solid #8A1538;
+    /* Fondo rojo vino muy translúcido */
+    background: rgba(138, 21, 56, 0.02);
+}
+
+/* Estilos para h3 en la primera tarjeta */
+.program-card:nth-child(1) .card-content h3 {
+    /* Color rojo vino */
+    color: #8A1538;
+}
+
+/* Estilos para stats-badge en la primera tarjeta */
+.program-card:nth-child(1) .stats-badge {
+    /* Fondo rojo vino translúcido */
+    background: rgba(138, 21, 56, 0.1);
+    /* Color rojo vino */
+    color: #8A1538;
+    /* Borde sutil rojo vino */
+    border: 1px solid rgba(138, 21, 56, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la primera tarjeta */
+.program-card:nth-child(1) .stats-badge::before {
+    /* Color rojo vino */
+    color: #8A1538;
+}
+
+/* Estilos para la segunda tarjeta de programa */
+.program-card:nth-child(2) {
+    /* Borde superior púrpura */
+    border-top: 5px solid #8B5CF6;
+    /* Fondo púrpura muy translúcido */
+    background: rgba(139, 92, 246, 0.02);
+}
+
+/* Estilos para h3 en la segunda tarjeta */
+.program-card:nth-child(2) .card-content h3 {
+    /* Color púrpura */
+    color: #8B5CF6;
+}
+
+/* Estilos para stats-badge en la segunda tarjeta */
+.program-card:nth-child(2) .stats-badge {
+    /* Fondo púrpura translúcido */
+    background: rgba(139, 92, 246, 0.1);
+    /* Color púrpura */
+    color: #8B5CF6;
+    /* Borde sutil púrpura */
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la segunda tarjeta */
+.program-card:nth-child(2) .stats-badge::before {
+    /* Color púrpura */
+    color: #8B5CF6;
+}
+
+/* Estilos para la tercera tarjeta de programa */
+.program-card:nth-child(3) {
+    /* Borde superior rosa fuerte */
+    border-top: 5px solid #D9008D;
+    /* Fondo rosa fuerte muy translúcido */
+    background: rgba(217, 0, 141, 0.02);
+}
+
+/* Estilos para h3 en la tercera tarjeta */
+.program-card:nth-child(3) .card-content h3 {
+    /* Color rosa fuerte */
+    color: #D9008D;
+}
+
+/* Estilos para stats-badge en la tercera tarjeta */
+.program-card:nth-child(3) .stats-badge {
+    /* Fondo rosa fuerte translúcido */
+    background: rgba(217, 0, 141, 0.1);
+    /* Color rosa fuerte */
+    color: #D9008D;
+    /* Borde sutil rosa fuerte */
+    border: 1px solid rgba(217, 0, 141, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la tercera tarjeta */
+.program-card:nth-child(3) .stats-badge::before {
+    /* Color rosa fuerte */
+    color: #D9008D;
+}
+
+/* Estilos para la cuarta tarjeta de programa */
+.program-card:nth-child(4) {
+    /* Borde superior verde lima */
+    border-top: 5px solid #84CC16;
+    /* Fondo verde lima muy translúcido */
+    background: rgba(132, 204, 22, 0.02);
+}
+
+/* Estilos para h3 en la cuarta tarjeta */
+.program-card:nth-child(4) .card-content h3 {
+    /* Color verde lima */
+    color: #84CC16;
+}
+
+/* Estilos para stats-badge en la cuarta tarjeta */
+.program-card:nth-child(4) .stats-badge {
+    /* Fondo verde lima translúcido */
+    background: rgba(132, 204, 22, 0.1);
+    /* Color verde lima */
+    color: #84CC16;
+    /* Borde sutil verde lima */
+    border: 1px solid rgba(132, 204, 22, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la cuarta tarjeta */
+.program-card:nth-child(4) .stats-badge::before {
+    /* Color verde lima */
+    color: #84CC16;
+}
+
+/* Estilos para la quinta tarjeta de programa */
+.program-card:nth-child(5) {
+    /* Borde superior amarillo */
+    border-top: 5px solid #EAB308;
+    /* Fondo amarillo muy translúcido */
+    background: rgba(234, 179, 8, 0.02);
+}
+
+/* Estilos para h3 en la quinta tarjeta */
+.program-card:nth-child(5) .card-content h3 {
+    /* Color amarillo */
+    color: #EAB308;
+}
+
+/* Estilos para stats-badge en la quinta tarjeta */
+.program-card:nth-child(5) .stats-badge {
+    /* Fondo amarillo translúcido */
+    background: rgba(234, 179, 8, 0.1);
+    /* Color amarillo */
+    color: #EAB308;
+    /* Borde sutil amarillo */
+    border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la quinta tarjeta */
+.program-card:nth-child(5) .stats-badge::before {
+    /* Color amarillo */
+    color: #EAB308;
+}
+
+/* Estilos para la sexta tarjeta de programa */
+.program-card:nth-child(6) {
+    /* Borde superior naranja */
+    border-top: 5px solid #FF5E00;
+    /* Fondo naranja muy translúcido */
+    background: rgba(255, 94, 0, 0.02);
+}
+
+/* Estilos para h3 en la sexta tarjeta */
+.program-card:nth-child(6) .card-content h3 {
+    /* Color naranja */
+    color: #FF5E00;
+}
+
+/* Estilos para stats-badge en la sexta tarjeta */
+.program-card:nth-child(6) .stats-badge {
+    /* Fondo naranja translúcido */
+    background: rgba(255, 94, 0, 0.1);
+    /* Color naranja */
+    color: #FF5E00;
+    /* Borde sutil naranja */
+    border: 1px solid rgba(255, 94, 0, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la sexta tarjeta */
+.program-card:nth-child(6) .stats-badge::before {
+    /* Color naranja */
+    color: #FF5E00;
+}
+
+/* Estilos para la séptima tarjeta de programa */
+.program-card:nth-child(7) {
+    /* Borde superior rojo */
+    border-top: 5px solid #E3001B;
+    /* Fondo rojo muy translúcido */
+    background: rgba(227, 0, 27, 0.02);
+}
+
+/* Estilos para h3 en la séptima tarjeta */
+.program-card:nth-child(7) .card-content h3 {
+    /* Color rojo */
+    color: #E3001B;
+}
+
+/* Estilos para stats-badge en la séptima tarjeta */
+.program-card:nth-child(7) .stats-badge {
+    /* Fondo rojo translúcido */
+    background: rgba(227, 0, 27, 0.1);
+    /* Color rojo */
+    color: #E3001B;
+    /* Borde sutil rojo */
+    border: 1px solid rgba(227, 0, 27, 0.2);
+}
+
+/* Estilos para ::before en stats-badge de la séptima tarjeta */
+.program-card:nth-child(7) .stats-badge::before {
+    /* Color rojo */
+    color: #E3001B;
+}
+
+/* Colores para los botones "Leer más" en cada tarjeta */
+/* Estilos para btn-wix en la primera tarjeta */
+.program-card:nth-child(1) .btn-wix {
+    /* Fondo rojo vino */
+    background: #8A1538;
+    /* Sombra roja vino */
+    box-shadow: 0 10px 20px rgba(138, 21, 56, 0.3);
+}
+
+/* Estilos hover para btn-wix en la primera tarjeta */
+.program-card:nth-child(1) .btn-wix:hover {
+    /* Sombra más intensa roja vino */
+    box-shadow: 0 15px 25px rgba(138, 21, 56, 0.4);
+}
+
+/* Estilos para btn-wix en la segunda tarjeta */
+.program-card:nth-child(2) .btn-wix {
+    /* Fondo púrpura */
+    background: #8B5CF6;
+    /* Sombra púrpura */
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Estilos hover para btn-wix en la segunda tarjeta */
+.program-card:nth-child(2) .btn-wix:hover {
+    /* Sombra más intensa púrpura */
+    box-shadow: 0 15px 25px rgba(139, 92, 246, 0.4);
+}
+
+/* Estilos para btn-wix en la tercera tarjeta */
+.program-card:nth-child(3) .btn-wix {
+    /* Fondo rosa fuerte */
+    background: #D9008D;
+    /* Sombra rosa fuerte */
+    box-shadow: 0 10px 20px rgba(217, 0, 141, 0.3);
+}
+
+/* Estilos hover para btn-wix en la tercera tarjeta */
+.program-card:nth-child(3) .btn-wix:hover {
+    /* Sombra más intensa rosa fuerte */
+    box-shadow: 0 15px 25px rgba(217, 0, 141, 0.4);
+}
+
+/* Estilos para btn-wix en la cuarta tarjeta */
+.program-card:nth-child(4) .btn-wix {
+    /* Fondo verde lima */
+    background: #84CC16;
+    /* Sombra verde lima */
+    box-shadow: 0 10px 20px rgba(132, 204, 22, 0.3);
+}
+
+/* Estilos hover para btn-wix en la cuarta tarjeta */
+.program-card:nth-child(4) .btn-wix:hover {
+    /* Sombra más intensa verde lima */
+    box-shadow: 0 15px 25px rgba(132, 204, 22, 0.4);
+}
+
+/* Estilos para btn-wix en la quinta tarjeta */
+.program-card:nth-child(5) .btn-wix {
+    /* Fondo amarillo */
+    background: #EAB308;
+    /* Sombra amarilla */
+    box-shadow: 0 10px 20px rgba(234, 179, 8, 0.3);
+}
+
+/* Estilos hover para btn-wix en la quinta tarjeta */
+.program-card:nth-child(5) .btn-wix:hover {
+    /* Sombra más intensa amarilla */
+    box-shadow: 0 15px 25px rgba(234, 179, 8, 0.4);
+}
+
+/* Estilos para btn-wix en la sexta tarjeta */
+.program-card:nth-child(6) .btn-wix {
+    /* Fondo naranja */
+    background: #FF5E00;
+    /* Sombra naranja */
+    box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3);
+}
+
+/* Estilos hover para btn-wix en la sexta tarjeta */
+.program-card:nth-child(6) .btn-wix:hover {
+    /* Sombra más intensa naranja */
+    box-shadow: 0 15px 25px rgba(255, 94, 0, 0.4);
+}
+
+/* Estilos para btn-wix en la séptima tarjeta */
+.program-card:nth-child(7) .btn-wix {
+    /* Fondo rojo */
+    background: #E3001B;
+    /* Sombra roja */
+    box-shadow: 0 10px 20px rgba(227, 0, 27, 0.3);
+}
+
+/* Estilos hover para btn-wix en la séptima tarjeta */
+.program-card:nth-child(7) .btn-wix:hover {
+    /* Sombra más intensa roja */
+    box-shadow: 0 15px 25px rgba(227, 0, 27, 0.4);
+}
+
+/* --- GALERÍA --- */
+/* Estilos para la grilla de galería */
+.grid-simple-9 {
+    /* Display grid */
+    display: grid;
+    /* 3 columnas iguales */
+    grid-template-columns: repeat(3, 1fr);
+    /* Gap de 25px */
+    gap: 25px;
+    /* Ancho máximo 1200px */
+    max-width: 1200px;
+    /* Margen auto para centrar */
+    margin: 0 auto;
+}
+
+/* Estilos para contenedor de imagen en galería */
+.caja-img {
+    /* Relación de aspecto 1:1 */
+    aspect-ratio: 1 / 1;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Bordes redondeados */
+    border-radius: 20px;
+    /* Posición relativa */
+    position: relative;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Cursor pointer */
+    cursor: pointer;
+}
+
+/* Estilos para imagen en caja-img */
+.caja-img img {
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 100% */
+    height: 100%;
+    /* Object fit cover */
+    object-fit: cover;
+    /* Transición transform 0.5s */
+    transition: transform 0.5s ease;
+}
+
+/* Estilos para imagen al hover de caja-img */
+.caja-img:hover img {
+    /* Escala a 1.08 */
+    transform: scale(1.08);
+}
+
+/* Pseudo-elemento ::after para caja-img */
+.caja-img::after {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Arriba 0 */
+    top: 0;
+    /* Izquierda 0 */
+    left: 0;
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 100% */
+    height: 100%;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Opacidad 0 */
+    opacity: 0;
+    /* Transición opacity 0.3s */
+    transition: opacity 0.3s;
+    /* Modo de mezcla overlay */
+    mix-blend-mode: overlay;
+}
+
+/* Estilos para ::after al hover de caja-img */
+.caja-img:hover::after {
+    /* Opacidad 0.4 */
+    opacity: 0.4;
+}
+
+/* --- AGRUPACIONES CARDS (ESTILO SIMÓN BOLÍVAR) --- */
+/* Estilos para grilla de agrupaciones */
+.agrupaciones-grid {
+    /* Display grid */
+    display: grid;
+    /* Columnas auto-fit, min 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Gap 30px */
+    gap: 30px;
+    /* Ancho máximo 1200px */
+    max-width: 1200px;
+    /* Margen auto */
+    margin: 0 auto;
+    /* Padding bottom 40px */
+    padding-bottom: 40px;
+}
+
+/* Estilos para tarjeta de agrupación */
+.agrupacion-card {
+    /* Fondo blanco */
+    background: var(--blanco);
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Transición suave */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Display flex */
+    display: flex;
+    /* Dirección columna */
+    flex-direction: column;
+    /* Posición relativa */
+    position: relative;
+    /* Bordes redondeados */
+    border-radius: 4px;
+}
+
+/* Estilos hover para agrupacion-card */
+.agrupacion-card:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-10px);
+    /* Sombra fuerte */
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* Estilos para contenedor de imagen de agrupación */
+.agrupacion-img-container {
+    /* Altura 220px */
+    height: 220px;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Posición relativa */
+    position: relative;
+}
+
+/* Estilos para imagen en agrupacion-img-container */
+.agrupacion-img-container img {
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 100% */
+    height: 100%;
+    /* Object fit cover */
+    object-fit: cover;
+    /* Transición transform 0.6s */
+    transition: transform 0.6s ease;
+}
+
+/* Estilos para imagen al hover de agrupacion-card */
+.agrupacion-card:hover .agrupacion-img-container img {
+    /* Escala a 1.1 */
+    transform: scale(1.1);
+}
+
+/* Estilos para info de agrupación */
+.agrupacion-info {
+    /* Fondo azul institucional */
+    background: #004b7a;
+    /* Padding 20px arriba/abajo, 15px izquierda/derecha */
+    padding: 20px 15px;
+    /* Alineación center */
+    text-align: center;
+    /* Color blanco */
+    color: var(--blanco);
+    /* Altura mínima 90px */
+    min-height: 90px;
+    /* Display flex */
+    display: flex;
+    /* Alinea items center */
+    align-items: center;
+    /* Justifica center */
+    justify-content: center;
+}
+
+/* Estilos para h4 en agrupacion-info */
+.agrupacion-info h4 {
+    /* Margen 0 */
+    margin: 0;
+    /* Tamaño fuente 0.95rem */
+    font-size: 0.95rem;
+    /* Peso 500 */
+    font-weight: 500;
+    /* Transforma a mayúsculas */
+    text-transform: uppercase;
+    /* Espaciado letras 1px */
+    letter-spacing: 1px;
+    /* Altura línea 1.4 */
+    line-height: 1.4;
+}
+
+
+/* --- TRÁMITES Y ADMISIÓN --- */
+/* Estilos para contenedor de trámites */
+.tramites-container {
+    /* Ancho máximo 1000px */
+    max-width: 1000px;
+    /* Margen auto */
+    margin: 0 auto;
+    /* Alineación center */
+    text-align: center;
+}
+
+/* Estilos para lista de requisitos */
+.requisitos-list {
+    /* Sin estilo de lista */
+    list-style: none;
+    /* Margen 50px arriba/abajo, 0 izquierda/derecha */
+    margin: 50px 0;
+    /* Display grid */
+    display: grid;
+    /* Columnas auto-fit, min 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Gap 30px */
+    gap: 30px;
+}
+
+/* Estilos para tarjeta de requisito */
+.requisito-card {
+    /* Fondo blanco translúcido con blur */
+    background: rgba(255, 255, 255, 0.85);
+    /* Filtro blur */
+    backdrop-filter: blur(10px);
+    /* Prefijo webkit */
+    -webkit-backdrop-filter: blur(10px);
+    /* Bordes redondeados */
+    border-radius: 20px;
+    /* Padding 35px arriba/abajo, 25px izquierda/derecha */
+    padding: 35px 25px;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Transición suave */
+    transition: all 0.3s ease;
+    /* Alineación center */
+    text-align: center;
+    /* Posición relativa */
+    position: relative;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+    /* Z-index 1 */
+    z-index: 1;
+    /* Borde sutil */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Pseudo-elemento ::before para requisito-card */
+.requisito-card::before {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Arriba 0 */
+    top: 0;
+    /* Izquierda 0 */
+    left: 0;
+    /* Ancho 100% */
+    width: 100%;
+    /* Altura 5px */
+    height: 5px;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+}
+
+/* Estilos hover para requisito-card */
+.requisito-card:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-8px);
+    /* Sombra fuerte */
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* Estilos para icono i en requisito-card */
+.requisito-card i {
+    /* Tamaño fuente 2.5rem */
+    font-size: 2.5rem;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Clip text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Fill color transparent */
+    -webkit-text-fill-color: transparent;
+    /* Margen bottom 20px */
+    margin-bottom: 20px;
+}
+
+/* Estilos para p en requisito-card */
+.requisito-card p {
+    /* Tamaño fuente 1rem */
+    font-size: 1rem;
+    /* Peso 500 */
+    font-weight: 500;
+    /* Margen 0 */
+    margin: 0;
+}
+
+/* Estilos para tarjeta de descarga */
+.descarga-card {
+    /* Fondo oscuro */
+    background: var(--oscuro);
+    /* Bordes redondeados */
+    border-radius: 24px;
+    /* Padding 50px */
+    padding: 50px;
+    /* Alineación center */
+    text-align: center;
+    /* Color blanco */
+    color: var(--blanco);
+    /* Margen top 60px */
+    margin-top: 60px;
+    /* Sombra */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    /* Posición relativa */
+    position: relative;
+    /* Oculta desbordamiento */
+    overflow: hidden;
+}
+
+/* Pseudo-elemento ::after para descarga-card */
+.descarga-card::after {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Arriba -50% */
+    top: -50%;
+    /* Izquierda -50% */
+    left: -50%;
+    /* Ancho 200% */
+    width: 200%;
+    /* Altura 200% */
+    height: 200%;
+    /* Fondo radial gradiente */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    /* Z-index 0 */
+    z-index: 0;
+    /* Pointer events none */
+    pointer-events: none;
+}
+
+/* Estilos para hijos directos de descarga-card */
+.descarga-card>* {
+    /* Posición relativa */
+    position: relative;
+    /* Z-index 1 */
+    z-index: 1;
+}
+
+/* Estilos para h3 en descarga-card */
+.descarga-card h3 {
+    /* Color blanco */
+    color: var(--blanco);
+    /* Tamaño fuente 2rem */
+    font-size: 2rem;
+}
+
+/* Estilos para p en descarga-card */
+.descarga-card p {
+    /* Color gris */
+    color: #94A3B8;
+    /* Tamaño fuente 1.1rem */
+    font-size: 1.1rem;
+}
+
+/* Estilos para botón dorado */
+.btn-dorado {
+    /* Display inline-block */
+    display: inline-block;
+    /* Padding 16px arriba/abajo, 45px izquierda/derecha */
+    padding: 16px 45px;
+    /* Fondo acento */
+    background: var(--acento);
+    /* Color blanco */
+    color: var(--blanco);
+    /* Sin decoración */
+    text-decoration: none;
+    /* Tamaño fuente 1rem */
+    font-size: 1rem;
+    /* Peso 700 */
+    font-weight: 700;
+    /* Bordes redondeados */
+    border-radius: 50px;
+    /* Transición suave */
+    transition: all 0.3s;
+    /* Margen top 25px */
+    margin-top: 25px;
+    /* Sombra dorada */
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+}
+
+/* Estilos hover para btn-dorado */
+.btn-dorado:hover {
+    /* Fondo más oscuro */
+    background: #D97706;
+    /* Mueve hacia arriba */
+    transform: translateY(-3px);
+    /* Sombra más intensa */
+    box-shadow: 0 15px 25px rgba(245, 158, 11, 0.4);
+}
+
+/* --- CONTACTOS --- */
+/* Estilos para grilla de contactos */
+.contacto-grid {
+    /* Display grid */
+    display: grid;
+    /* Columnas auto-fit, min 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Gap 30px */
+    gap: 30px;
+    /* Ancho máximo 1000px */
+    max-width: 1000px;
+    /* Margen 50px arriba, auto izquierda/derecha, 0 abajo */
+    margin: 50px auto 0;
+}
+
+/* Estilos para item de contacto */
+.contacto-item {
+    /* Fondo blanco translúcido con blur */
+    background: rgba(255, 255, 255, 0.85);
+    /* Filtro blur */
+    backdrop-filter: blur(10px);
+    /* Prefijo webkit */
+    -webkit-backdrop-filter: blur(10px);
+    /* Padding 40px arriba/abajo, 20px izquierda/derecha */
+    padding: 40px 20px;
+    /* Bordes redondeados */
+    border-radius: 20px;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Transición transform 0.3s */
+    transition: transform 0.3s;
+    /* Borde sutil */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Estilos hover para contacto-item */
+.contacto-item:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-5px);
+}
+
+/* Estilos para icono i en contacto-item */
+.contacto-item i {
+    /* Tamaño fuente 3rem */
+    font-size: 3rem;
+    /* Color primario */
+    color: var(--primario);
+    /* Margen bottom 20px */
+    margin-bottom: 20px;
+}
+
+/* Estilos para enlaces sociales */
+.social-links {
+    /* Display flex */
+    display: flex;
+    /* Justifica center */
+    justify-content: center;
+    /* Gap 40px */
+    gap: 40px;
+    /* Margen top 50px */
+    margin-top: 50px;
+}
+
+/* Estilos para enlaces a en social-links */
+.social-links a {
+    /* Display flex */
+    display: flex;
+    /* Alinea items center */
+    align-items: center;
+    /* Justifica center */
+    justify-content: center;
+    /* Ancho 80px */
+    width: 80px;
+    /* Altura 80px */
+    height: 80px;
+    /* Bordes redondeados */
+    border-radius: 50%;
+    /* Fondo blanco translúcido */
+    background: rgba(255, 255, 255, 0.1);
+    /* Color blanco */
+    color: var(--blanco);
+    /* Tamaño fuente 2.5rem */
+    font-size: 2.5rem;
+    /* Transición suave */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Borde sutil blanco */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos hover para social-links a */
+.social-links a:hover {
+    /* Fondo gradiente */
+    background: var(--gradiente-2);
+    /* Mueve hacia arriba y escala */
+    transform: translateY(-10px) scale(1.1);
+    /* Sombra naranja */
+    box-shadow: 0 15px 30px rgba(255, 94, 0, 0.4);
+    /* Borde transparente */
+    border-color: transparent;
+}
+
+/* --- HISTORIA (GRILLA DE HITOS) --- */
+/* Estilos para grilla de historia */
+.history-grid {
+    /* Display grid */
+    display: grid;
+    /* Columnas auto-fit, min 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Gap 30px */
+    gap: 30px;
+    /* Ancho máximo 1200px */
+    max-width: 1200px;
+    /* Margen 40px arriba, auto izquierda/derecha, 0 abajo */
+    margin: 40px auto 0;
+}
+
+/* Estilos para tarjeta de historia */
+.history-card {
+    /* Fondo blanco translúcido con blur */
+    background: rgba(255, 255, 255, 0.85);
+    /* Filtro blur */
+    backdrop-filter: blur(10px);
+    /* Prefijo webkit */
+    -webkit-backdrop-filter: blur(10px);
+    /* Padding 40px arriba/abajo, 30px izquierda/derecha */
+    padding: 40px 30px;
+    /* Bordes redondeados */
+    border-radius: 20px;
+    /* Sombra suave */
+    box-shadow: var(--sombra-suave);
+    /* Transición suave */
+    transition: all 0.4s ease;
+    /* Alineación center */
+    text-align: center;
+    /* Posición relativa */
+    position: relative;
+    /* Borde sutil */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Estilos hover para history-card */
+.history-card:hover {
+    /* Mueve hacia arriba */
+    transform: translateY(-10px);
+    /* Sombra fuerte */
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* Estilos para año en history-card */
+.history-card .h-year {
+    /* Tamaño fuente 0.9rem */
+    font-size: 0.9rem;
+    /* Peso 800 */
+    font-weight: 800;
+    /* Color rosa */
+    color: var(--rosa);
+    /* Fondo azul suave */
+    background: var(--azul-suave);
+    /* Padding 5px arriba/abajo, 15px izquierda/derecha */
+    padding: 5px 15px;
+    /* Bordes redondeados */
+    border-radius: 50px;
+    /* Display inline-block */
+    display: inline-block;
+    /* Margen bottom 20px */
+    margin-bottom: 20px;
+}
+
+/* Estilos para h3 en history-card */
+.history-card h3 {
+    /* Tamaño fuente 1.3rem */
+    font-size: 1.3rem;
+    /* Color oscuro */
+    color: var(--oscuro);
+    /* Margen bottom 15px */
+    margin-bottom: 15px;
+    /* Transforma a mayúsculas */
+    text-transform: uppercase;
+    /* Espaciado letras 1px */
+    letter-spacing: 1px;
+}
+
+/* Estilos para p en history-card */
+.history-card p {
+    /* Tamaño fuente 0.95rem */
+    font-size: 0.95rem;
+    /* Altura línea 1.6 */
+    line-height: 1.6;
+    /* Color gris */
+    color: #444;
+    /* Margen 0 */
+    margin: 0;
+}
+
+/* Pseudo-elemento ::after para history-card */
+.history-card::after {
+    /* Contenido vacío */
+    content: '';
+    /* Posición absoluta */
+    position: absolute;
+    /* Abajo 0 */
+    bottom: 0;
+    /* Izquierda 50% */
+    left: 50%;
+    /* Transforma para centrar */
+    transform: translateX(-50%);
+    /* Ancho 0 */
+    width: 0;
+    /* Altura 4px */
+    height: 4px;
+    /* Fondo gradiente */
+    background: var(--gradiente-1);
+    /* Transición width 0.3s */
+    transition: width 0.3s ease;
+    /* Bordes redondeados */
+    border-radius: 2px;
+}
+
+/* Estilos para ::after al hover de history-card */
+.history-card:hover::after {
+    /* Ancho 60px */
+    width: 60px;
+}
+
+/* --- FOOTER --- */
+/* Estilos para footer */
+footer {
+    /* Fondo oscuro */
+    background: var(--oscuro);
+    /* Color blanco */
+    color: var(--blanco);
+    /* Alineación center */
+    text-align: center;
+    /* Padding 40px arriba/abajo, 20px izquierda/derecha */
+    padding: 40px 20px;
+    /* Tamaño fuente 0.95rem */
+    font-size: 0.95rem;
+    /* Margen top 60px */
+    margin-top: 60px;
+    /* Borde top primario */
+    border-top: 4px solid var(--primario);
+}
+
+/* Estilos para p en footer */
+footer p {
+    /* Margen bottom 0 */
+    margin-bottom: 0;
+    /* Color blanco */
+    color: var(--blanco);
+    /* Opacidad 1 */
+    opacity: 1;
+    /* Espaciado letras 1px */
+    letter-spacing: 1px;
+    /* Peso 500 */
+    font-weight: 500;
+}
+
+/* --- MENÚ HAMBURGUESA (Oculto por defecto en escritorio) --- */
+/* Estilos para toggle del menú hamburguesa */
+.menu-toggle {
+    /* Display none por defecto */
+    display: none;
+    /* Color blanco */
+    color: var(--blanco);
+    /* Tamaño fuente 1.8rem */
+    font-size: 1.8rem;
+    /* Cursor pointer */
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE --- */
+/* Media query para pantallas menores a 900px */
+@media screen and (max-width: 900px) {
+    /* Estilos para history-grid en responsive */
+    .history-grid {
+        /* Una columna */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Media query para pantallas menores a 768px */
+@media (max-width: 768px) {
+    /* Navbar y Menú Hamburguesa */
+    /* Muestra menu-toggle */
+    .menu-toggle {
+        /* Display block */
+        display: block;
+    }
+
+    /* Estilos para navbar en móvil */
+    .navbar {
+        /* Padding 15px arriba/abajo, 5% izquierda/derecha */
+        padding: 15px 5%;
+    }
+
+    /* Estilos para ul en navbar en móvil */
+    .navbar ul {
+        /* Display none */
+        display: none;
+        /* Dirección columna */
+        flex-direction: column;
+        /* Ancho 100% */
+        width: 100%;
+        /* Posición absoluta */
+        position: absolute;
+        /* Arriba 100% */
+        top: 100%;
+        /* Izquierda 0 */
+        left: 0;
+        /* Fondo oscuro */
+        background: var(--oscuro);
+        /* Padding 0 */
+        padding: 0;
+        /* Sombra */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        /* Altura máxima 85vh */
+        max-height: 85vh;
+        /* Scroll vertical */
+        overflow-y: auto;
+    }
+
+    /* Estilos para ul.show en navbar */
+    .navbar ul.show {
+        /* Display flex */
+        display: flex;
+    }
+
+    /* Estilos para li en navbar ul en móvil */
+    .navbar ul li {
+        /* Ancho 100% */
+        width: 100%;
+        /* Margen 0 */
+        margin: 0;
+        /* Alineación center */
+        text-align: center;
+        /* Borde bottom sutil */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Estilos para nav-item-title en li */
+    .navbar ul li .nav-item-title {
+        /* Display block */
+        display: block;
+        /* Padding 15px */
+        padding: 15px;
+    }
+
+    /* Estilos para dropdown en móvil */
+    .dropdown {
+        /* Posición relativa */
+        position: relative;
+        /* Display none */
+        display: none;
+        /* Arriba 0 */
+        top: 0;
+        /* Fondo transparente */
+        background: rgba(0,0,0,0.2);
+        /* Sin sombra */
+        box-shadow: none;
+        /* Padding 0 */
+        padding: 0;
+        /* Sin bordes */
+        border-radius: 0;
+    }
+
+    /* Estilos para li en dropdown */
+    .dropdown li {
+        /* Sin borde bottom */
+        border-bottom: none;
+    }
+
+    /* Estilos para span en dropdown li */
+    .dropdown li span {
+        /* Padding 10px */
+        padding: 10px;
+        /* Tamaño fuente 0.9rem */
+        font-size: 0.9rem;
+    }
+
+    /* Mostrar submenú cuando se hace clic en móvil */
+    /* Estilos para dropdown en li.mobile-open */
+    .navbar ul li.mobile-open .dropdown {
+        /* Display block */
+        display: block !important;
+        /* Fondo transparente */
+        background: transparent !important;
+        /* Margen 0 */
+        margin: 0 !important;
+        /* Padding 5px arriba, 15px abajo */
+        padding: 5px 0 15px 0 !important;
+        /* Posición static */
+        position: static !important;
+        /* Ancho 100% */
+        width: 100% !important;
+        /* Opacidad 1 */
+        opacity: 1 !important;
+        /* Visibilidad visible */
+        visibility: visible !important;
+        /* Sin borde */
+        border: none !important;
+        /* Izquierda auto */
+        left: auto !important;
+        /* Sin transform */
+        transform: none !important;
+    }
+
+    /* Estilos para li en dropdown de mobile-open */
+    .navbar ul li.mobile-open .dropdown li {
+        /* Display block */
+        display: block !important;
+        /* Alineación center */
+        text-align: center !important;
+        /* Ancho 100% */
+        width: 100% !important;
+    }
+
+    /* Estilos para span.nav-link en dropdown li de mobile-open */
+    .navbar ul li.mobile-open .dropdown li span.nav-link {
+        /* Color blanco */
+        color: #FFFFFF !important;
+        /* Display block */
+        display: block !important;
+        /* Padding 15px arriba/abajo, 0 izquierda/derecha */
+        padding: 15px 0 !important;
+        /* Tamaño fuente 1rem */
+        font-size: 1rem !important;
+        /* Ancho 100% */
+        width: 100% !important;
+        /* Alineación center */
+        text-align: center !important;
+    }
+
+    /* Estilos hover para span.nav-link en mobile-open */
+    .navbar ul li.mobile-open .dropdown li span.nav-link:hover {
+        /* Color acento */
+        color: var(--acento) !important;
+    }
+
+    /* Oculta dropdown al hover de li */
+    .navbar ul li:hover .dropdown {
+        /* Display none */
+        display: none;
+    }
+
+    /* Estilos para nav-item-title en móvil */
+    .nav-item-title {
+        /* Display flex */
+        display: flex;
+        /* Justifica space-between */
+        justify-content: space-between;
+        /* Alinea center */
+        align-items: center;
+        /* Ancho 100% */
+        width: 100%;
+        /* Padding 10px arriba/abajo */
+        padding: 10px 0;
+    }
+
+    /* Pseudo-elemento ::after para nav-item-title */
+    .nav-item-title::after {
+        /* Contenido chevron-down */
+        content: '\f107';
+        /* Familia FontAwesome */
+        font-family: 'Font Awesome 6 Free';
+        /* Peso 900 */
+        font-weight: 900;
+        /* Margen left 10px */
+        margin-left: 10px;
+        /* Transición transform 0.3s */
+        transition: transform 0.3s;
+    }
+
+    /* Estilos para ::after en nav-item-title de mobile-open */
+    .navbar ul li.mobile-open .nav-item-title::after {
+        /* Rota 180deg */
+        transform: rotate(180deg);
+    }
+
+    /* Ajustes generales de cuadrícula y layout */
+    /* Estilos para grids en móvil */
+    .programs-grid,
+    .grid-simple-9,
+    .agrupaciones-grid,
+    .tramites-container .requisitos-list,
+    .contacto-grid {
+        /* Una columna */
+        grid-template-columns: 1fr;
+    }
+
+    /* Estilos para wix-row y reverse en móvil */
+    .wix-row,
+    .wix-row.reverse {
+        /* Dirección columna */
+        flex-direction: column;
+    }
+
+    /* Estilos para wix-col-text e img en móvil */
+    .wix-col-text,
+    .wix-col-img {
+        /* Ancho 100% */
+        width: 100%;
+        /* Padding 40px arriba/abajo, 5% izquierda/derecha */
+        padding: 40px 5%;
+        /* Altura mínima auto */
+        min-height: auto;
+        /* Alineación center */
+        text-align: center;
+    }
+    
+    /* Estilos para img en wix-col-img en móvil */
+    .wix-col-img img {
+        /* Sin bordes */
+        border-radius: 0;
+        /* Altura máxima 400px */
+        max-height: 400px;
+    }
+
+    /* Tipografía */
+    /* Estilos para h1 en móvil */
+    h1 {
+        /* Tamaño fuente 2.2rem */
+        font-size: 2.2rem;
+    }
+
+    /* Estilos para h2 en móvil */
+    h2 {
+        /* Tamaño fuente 1.8rem */
+        font-size: 1.8rem;
+    }
+    
+    /* Estilos para section > div en móvil */
+    .section > div {
+        /* Padding 60px arriba/abajo, 5% izquierda/derecha */
+        padding: 60px 5% !important;
+    }
+}
