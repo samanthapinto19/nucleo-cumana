@@ -48,8 +48,8 @@
                 <li><span class="nav-link active" onclick="showSection('bienvenida', event)">Bienvenida</span></li>
                 <!-- Enlace a la sección de galería -->
                 <li><span class="nav-link" onclick="showSection('galeria', event)">Galería</span></li>
-                <!-- Enlace a la sección de trámites -->
-                <li><span class="nav-link" onclick="showSection('tramites', event)">Trámites y Admisión</span></li>
+                <!-- Enlace a la sección de noticias y eventos -->
+                <li><span class="nav-link" onclick="showSection('noticias-eventos', event)">Noticias y Eventos</span></li>
             </ul>
         </li>
         <!-- Elemento de menú Institución con submenú -->
@@ -74,17 +74,14 @@
                 <li><span class="nav-link" onclick="showSection('programas', event)">Programas</span></li>
                 <!-- Enlace a la sección de módulos -->
                 <li><span class="nav-link" onclick="showSection('modulos', event)">Módulos</span></li>
-            </ul>
-        </li>
-        <!-- Elemento de menú Agrupaciones con submenú -->
-        <li>
-            <!-- Título del elemento de navegación -->
-            <span class="nav-item-title">Agrupaciones</span>
-            <!-- Menú desplegable para Agrupaciones -->
-            <ul class="dropdown">
                 <!-- Enlace a la sección de agrupaciones -->
                 <li><span class="nav-link" onclick="showSection('agrupaciones', event)">Agrupaciones</span></li>
             </ul>
+        </li>
+        <!-- Elemento de menú Trámites y Admisión -->
+        <li>
+            <!-- Título del elemento de navegación -->
+            <span class="nav-item-title" onclick="showSection('tramites', event)">Trámites y Admisión</span>
         </li>
         <!-- Elemento de menú Contactos con submenú -->
         <li>
@@ -96,8 +93,6 @@
                 <li><span class="nav-link" onclick="showSection('direccion', event)">Dirección</span></li>
                 <!-- Enlace a la sección de redes sociales -->
                 <li><span class="nav-link" onclick="showSection('redes-sociales', event)">Redes Sociales</span></li>
-                <!-- Enlace a la sección de noticias y eventos -->
-                <li><span class="nav-link" onclick="showSection('noticias-eventos', event)">Noticias y Eventos</span></li>
             </ul>
         </li>
     </ul>
